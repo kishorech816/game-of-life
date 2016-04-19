@@ -4,7 +4,7 @@
     <parent>
         <artifactId>gameoflife</artifactId>
         <groupId>com.wakaleo.gameoflife</groupId>
-        <version>0.0.56-SNAPSHOT</version>
+	   <version>${version.number}</version>
     </parent>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife-deploy</artifactId>
@@ -42,6 +42,18 @@
                     </deployer>
                 </configuration>
             </plugin>
+	
+	<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>emma-maven-plugin</artifactId>
+					<version>1.0-alpha-3</version>
+				
+					<configuration>
+						<metadataFile>${project.build.directory}/coverage.em</metadataFile>
+						<outputDirectory>${project.build.directory}/generated-classes/emma</outputDirectory>
+					</configuration>
+				</plugin>			
+	
         </plugins>
     </build>
     <dependencies>
